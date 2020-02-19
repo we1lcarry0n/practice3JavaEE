@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id = "Jeremy"
+          class = "GameMaster">
+    <constructor-arg value="20"/>
+    </bean>
+
+    <bean id = "creator" class="GameCreator"/>
+
+    <bean id = "Roger" class="ExpieriencesGameMaster">
+        <constructor-arg value="20"/>
+        <constructor-arg ref = "creator"/>
+    </bean>
+
+    <bean id="Felix" class="Speedcuber">
+        <property name="cube" value="MF3RS" />
+        <property name="rubicsCube" ref="mf3rs"/>
+
+    </bean>
+
+    <bean id = "mf3rs" class="MF3RS"/>
+    <bean id = "4x4" class="MoYo4x4Cube"/>
+
+    <bean id = "Andrew" class="SuperCuber">
+        <property name="cubes">
+            <list>
+                <ref bean = "mf3rs"/>
+                <ref bean="4x4"/>
+            </list>
+        </property>
+    </bean>
+
+
+</beans>
